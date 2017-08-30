@@ -13,6 +13,7 @@ Require at least one entry in NameAray before allowing submit
 <html>
 
 <head>
+  <script src="js/jquery-3.2.1.js"></script>
   <script src="js/accounting.js"></script>
 </head>
 
@@ -20,6 +21,7 @@ Require at least one entry in NameAray before allowing submit
   <script type="text/javascript">
     var nameArray = []
     var costArray = []
+
 
 
     function addName() {
@@ -44,8 +46,8 @@ Require at least one entry in NameAray before allowing submit
     function addFoodItem() {
       var check;
       check = document.getElementById("inputCost").value;
-      if (check == "") {
-        alert("Please enter a price");
+      if (check == "" || check <= 0) {
+        alert("Please enter a number greater than 0");
         return false;
       };
       var y = document.getElementById("boxCost");
@@ -64,6 +66,12 @@ Require at least one entry in NameAray before allowing submit
     }
 
     function addTip(subtotal) {
+      var check;
+      check = document.getElementById("inputTip").value;
+      if (check == "" || check < 0) {
+        alert("Please enter a tip equal to or greater than 0");
+        return false;
+      };
       var theTip = ((document.getElementById("inputTip").value))
       return accounting.toFixed((subtotal * theTip), 2)
 
@@ -71,6 +79,12 @@ Require at least one entry in NameAray before allowing submit
     }
 
     function addTax(subtotal) {
+      var check;
+      check = document.getElementById("inputTax").value;
+      if (check == "" || check < 0) {
+        alert("Please enter a tax rate equal to or greater than 0");
+        return false;
+      };
       var theTax = ((document.getElementById("inputTax").value))
       return accounting.toFixed((subtotal * theTax), 2)
 
@@ -96,12 +110,10 @@ Require at least one entry in NameAray before allowing submit
       document.getElementById("sumTotal").innerHTML = "$" + grossTotal;
 
 
-    }
-
-    // Searches the document for the ID "sumTotal", then sets the inner HTML content of sumTotal to be equal to the total cost of food divided by the number of people.
-    // toFixed(2) means the result is always rounded and truncated to two decimal places, adding .005 ensures that it will always round up.
+    };
   </script>
-  <form>
+
+  <form action="" method="post">
 
     <input id="inputName" type=text>
     <input type=button onclick="addName()" value="Add Name" />
@@ -112,7 +124,7 @@ Require at least one entry in NameAray before allowing submit
 
 
     <div class="input-group">
-      <input id="inputCost" type="number" placeholder="$" class="form-control">
+      <input id="inputCost" type="number" placeholder="$" min="0" class="form-control inputNumber">
       <span class="input-group-addon"></span>
       <input type=button onclick="addFoodItem()" value="Add Food" />
       <input type=button onclick="removeFoodItem()" value="Remove Food" />
@@ -121,10 +133,10 @@ Require at least one entry in NameAray before allowing submit
 
     <div class="tip-and-tax">
       <label>Tax Rate</label><br>
-      <input type="number" class="form-control" id="inputTax" onchange="addTax()">
+      <input type="number" class="form-control inputNumber" id="inputTax" min="0" onchange="addTax()">
       <span class="input-group-addon">%</span> <br>
       <label>Tip Amount</label><br>
-      <input type="number" class="form-control" id="inputTip" onchange="addTip()">
+      <input type="number" class="form-control" id="inputTip" min="0" onchange="addTip()">
       <span class="input-group-addon">%</span>
     </div>
 
