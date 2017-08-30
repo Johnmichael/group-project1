@@ -3,7 +3,7 @@
 <!--
 
  TO DO:
-Add Tip functionality
+Prevent splitTheBill from rounding up results that divide correctly.
 Require at least one entry in NameAray before allowing submit
 
 
@@ -31,16 +31,25 @@ Require at least one entry in NameAray before allowing submit
 
     }
 
-    function totalCost(total, num) {
-        return total + Math.round(num);
+    function subTotal(total, num) {
+      return total + Math.round(num);
+    }
+
+    function addTip(subtotal) {
+      var theTip = ((document.getElementById("tip").value)/100)
+      return subtotal * theTip
+
+
     }
 
     function splitTheBill(item) {
-        document.getElementById("sumTotal").innerHTML = "$"+((costArray.reduce(totalCost, 0)/nameArray.length+.005).toFixed(2));
+      beforeTip = (costArray.reduce(subTotal, 0) / nameArray.length + .005);
+      tipAmount = addTip(beforeTip)
+      grandTotal = document.getElementById("sumTotal").innerHTML = "$" + (beforeTip+tipAmount).toFixed(2);
     }
-  // Searches the document for the ID "sumTotal", then sets the inner HTML content of sumTotal to be equal to the total cost of food divided by the number of people.
-  // toFixed(2) means the result is always rounded and truncated to two decimal places, adding .005 ensures that it will always round up.
 
+    // Searches the document for the ID "sumTotal", then sets the inner HTML content of sumTotal to be equal to the total cost of food divided by the number of people.
+    // toFixed(2) means the result is always rounded and truncated to two decimal places, adding .005 ensures that it will always round up.
   </script>
   <form>
 
@@ -57,8 +66,18 @@ Require at least one entry in NameAray before allowing submit
       <input type=button onclick="addFoodItem()" value="Add Food" />
       <div id="boxCost" ; style="border:1px solid black;width:150px;height:150px;overflow:auto"></div>
     </div>
-    <input type=button onclick="splitTheBill(totalCost)" value="Split the Bill!" />
+
+    <div class="standardtips">
+      <label>Tip Amount</label><br>
+      <input type="number" class="form-control" id="tip" onchange="addTip()">
+      <span class="input-group-addon">%</span>
+    </div>
+
+    <input type=button onclick="splitTheBill(subTotal)" value="Split the Bill!" />
     <p>Cost per person: <span id="sumTotal"></span></p>
+
+
+
   </form>
 </body>
 
