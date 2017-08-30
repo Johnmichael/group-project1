@@ -1,0 +1,43 @@
+ <!DOCTYPE html>
+ <html>
+   <head>
+     <title>bSplit</title>
+   	<script src="js/jquery-3.2.1.js"></script>
+   	<link rel="stylesheet" href="css/bootstrap.css">
+   	<link rel="stylesheet" href="css/styles.css">
+   	<script src="js/scripts.js"></script>
+ 		<link rel="icon" href="img/blogo.ico">
+   </head>
+   <body>
+     <div class="wrapper">
+     <div class="header page-header">
+       <h1 class="name"><img src="img/blogo.jpg" alt="Logo"></h1>
+       <h2>bSplit Web App</h2>
+     </div>
+     <div class="container">
+    <form>
+      <label>Names</label><br>
+      <input id="inputName" class="form-control" placeholder="Group Names" type=text>
+      <button id="button" type=button onclick="addName()" value="Add Name"><span>Add Names</span></button>
+      <div id="box"></div>
+      <br>
+      <label>Food Price</label>
+      <div class="input-group">
+      <span class="input-group-addon">$</span>
+      <input id="inputCost" type="number" class="form-control" aria-label="Amount (to the nearest dollar)">
+      <br>
+      <br>
+      <br>
+      <button id="button" type=button onclick="addFoodItem()" value="Add Food" style="vertical-align:middle"><span>Add Food</span></button>
+      </div>
+      <br>
+      <div id="boxCost"></div>
+      <br>
+    <button id="button" type=button onclick="splitTheBill(totalCost)" value="Split the Bill!"><span>Split The Bill</span></button>
+    <p id="costPP"><h2>Cost per person:<h2> <span id="sumTotal"></span></p>
+  </form>
+  </div>
+</div>
+</body>
+
+</html>
