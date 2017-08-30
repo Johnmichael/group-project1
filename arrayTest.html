@@ -12,6 +12,10 @@ Require at least one entry in NameAray before allowing submit
 
 <html>
 
+<head>
+  <script src="js/accounting.js"></script>
+</head>
+
 <body>
   <script type="text/javascript">
     var nameArray = []
@@ -19,8 +23,14 @@ Require at least one entry in NameAray before allowing submit
 
 
     function addName() {
-      var x = document.getElementById("box");
+      var x = document.getElementById("boxNames");
       nameArray.push(document.getElementById("inputName").value);
+      x.innerHTML = nameArray.join('<br/>');
+    }
+
+    function removeName() {
+      var x = document.getElementById("boxNames");
+      nameArray.pop(document.getElementById("inputName").value);
       x.innerHTML = nameArray.join('<br/>');
     }
 
@@ -28,7 +38,12 @@ Require at least one entry in NameAray before allowing submit
       var y = document.getElementById("boxCost");
       costArray.push(document.getElementById("inputCost").value);
       y.innerHTML = costArray.join('<br/>');
+    }
 
+    function removeFoodItem() {
+      var y = document.getElementById("boxCost");
+      costArray.pop(document.getElementById("inputCost").value);
+      y.innerHTML = costArray.join('<br/>');
     }
 
     function subTotal(total, num) {
@@ -36,16 +51,38 @@ Require at least one entry in NameAray before allowing submit
     }
 
     function addTip(subtotal) {
-      var theTip = ((document.getElementById("tip").value)/100)
-      return subtotal * theTip
+      var theTip = ((document.getElementById("inputTip").value))
+      return accounting.toFixed((subtotal * theTip), 2)
 
 
     }
 
+    function addTax(subtotal) {
+      var theTax = ((document.getElementById("inputTax").value))
+      return accounting.toFixed((subtotal * theTax), 2)
+
+
+    }
+
+    function truncate(num, decimal) {
+      decimal = 2
+      return accounting.toFixed(num, decimal);
+    }
+
     function splitTheBill(item) {
-      beforeTip = (costArray.reduce(subTotal, 0) / nameArray.length + .005);
-      tipAmount = addTip(beforeTip)
-      grandTotal = document.getElementById("sumTotal").innerHTML = "$" + (beforeTip+tipAmount).toFixed(2);
+      priceOfMeal = costArray.reduce(subTotal, 0);
+      beforeTipandTax = (costArray.reduce(subTotal, 0) / nameArray.length);
+      priceOfMealSplit = truncate(beforeTipandTax)
+      tipAmount = addTip(beforeTipandTax) / 100
+      taxAmount = addTax(beforeTipandTax) / 100
+      grossTotal = truncate(beforeTipandTax + taxAmount + tipAmount);
+      grandTotal = document.getElementById("priceOfMeal").innerHTML = "$" + priceOfMeal
+      document.getElementById("cost-of-food").innerHTML = "$" + priceOfMealSplit
+      document.getElementById("tip").innerHTML = "$" + truncate(tipAmount)
+      document.getElementById("tax").innerHTML = "$" + truncate(taxAmount)
+      document.getElementById("sumTotal").innerHTML = "$" + grossTotal;
+
+
     }
 
     // Searches the document for the ID "sumTotal", then sets the inner HTML content of sumTotal to be equal to the total cost of food divided by the number of people.
@@ -55,26 +92,35 @@ Require at least one entry in NameAray before allowing submit
 
     <input id="inputName" type=text>
     <input type=button onclick="addName()" value="Add Name" />
-    <div id="box" ; style="border:1px solid black;width:150px;height:150px;overflow:auto"></div>
+    <input type=button onclick="removeName()" value="Remove Name" />
+    <div id="boxNames" ; style="border:1px solid black;width:150px;height:150px;overflow:auto"></div>
 
 
 
 
     <div class="input-group">
-      <input id="inputCost" type="number" placeholder="$" class="form-control" aria-label="Amount (to the nearest dollar)">
+      <input id="inputCost" type="number" placeholder="$" class="form-control">
       <span class="input-group-addon"></span>
       <input type=button onclick="addFoodItem()" value="Add Food" />
+      <input type=button onclick="removeFoodItem()" value="Remove Food" />
       <div id="boxCost" ; style="border:1px solid black;width:150px;height:150px;overflow:auto"></div>
     </div>
 
-    <div class="standardtips">
+    <div class="tip-and-tax">
+      <label>Tax Rate</label><br>
+      <input type="number" class="form-control" id="inputTax" onchange="addTax()">
+      <span class="input-group-addon">%</span> <br>
       <label>Tip Amount</label><br>
-      <input type="number" class="form-control" id="tip" onchange="addTip()">
+      <input type="number" class="form-control" id="inputTip" onchange="addTip()">
       <span class="input-group-addon">%</span>
     </div>
 
     <input type=button onclick="splitTheBill(subTotal)" value="Split the Bill!" />
-    <p>Cost per person: <span id="sumTotal"></span></p>
+    <p>Total Cost of Meal: <span id="priceOfMeal"></span></p>
+    <p>Per Person: <span id="cost-of-food"></span></p>
+    <p>Tax: <span id="tax"></span></p>
+    <p>Tip: <span id="tip"></span></p>
+    <p>Your Total: <span id="sumTotal"></span></p>
 
 
 
