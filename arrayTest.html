@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+
+ <body>
+  <script type="text/javascript">
+   var nameArray=[]
+   function myFunction()
+   {
+    var x=document.getElementById("box");
+     nameArray.push(document.getElementById("input").value);
+    x.innerHTML=nameArray.join('<br/>');
+
+    alert('The bill will be split '+ nameArray.length + ' ways.')
+   }
+  </script>
+ <form>
+  <input id="input" type=text>
+   <input type=button onclick="myFunction()" value="Add Name"/>
+  </form>
+
+ <div id="box"; style="border:1px solid black;width:150px;height:150px;overflow:auto">
+  </div>
+</body>
+</html>
