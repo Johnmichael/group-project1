@@ -1,9 +1,15 @@
 <!DOCTYPE html>
 
-// TO DO:
-// Round up result of SumTotal to 2 decimal places.
-// Add Tip functionality
-// Require at least one entry in NameAray before allowing submit
+<!--
+
+ TO DO:
+Round up result of SumTotal to 2 decimal places.
+Add Tip functionality
+Require at least one entry in NameAray before allowing submit
+
+
+
+ -->
 
 <html>
 
@@ -30,7 +36,7 @@
         return total + Math.round(num);
     }
 
-    function myFunction(item) {
+    function splitTheBill(item) {
         document.getElementById("sumTotal").innerHTML = ((costArray.reduce(totalCost, 0)/nameArray.length));
     }
 
@@ -52,7 +58,7 @@
       <input type=button onclick="addFoodItem()" value="Add Food" />
       <div id="boxCost" ; style="border:1px solid black;width:150px;height:150px;overflow:auto"></div>
     </div>
-    <input type=button onclick="myFunction(totalCost)" value="Split the Bill!" />
+    <input type=button onclick="splitTheBill(totalCost)" value="Split the Bill!" />
     <p>Cost per person: <span id="sumTotal"></span></p>
   </form>
 </body>
