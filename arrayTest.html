@@ -1,24 +1,60 @@
 <!DOCTYPE html>
+
+// TO DO:
+// Round up result of SumTotal to 2 decimal places.
+// Add Tip functionality
+// Require at least one entry in NameAray before allowing submit
+
 <html>
 
- <body>
+<body>
   <script type="text/javascript">
-   var nameArray=[]
-   function myFunction()
-   {
-    var x=document.getElementById("box");
-     nameArray.push(document.getElementById("input").value);
-    x.innerHTML=nameArray.join('<br/>');
+    var nameArray = []
+    var costArray = []
 
-    alert('The bill will be split '+ nameArray.length + ' ways.')
-   }
+
+    function addName() {
+      var x = document.getElementById("box");
+      nameArray.push(document.getElementById("inputName").value);
+      x.innerHTML = nameArray.join('<br/>');
+    }
+
+    function addFoodItem() {
+      var y = document.getElementById("boxCost");
+      costArray.push(document.getElementById("inputCost").value);
+      y.innerHTML = costArray.join('<br/>');
+
+    }
+
+    function totalCost(total, num) {
+        return total + Math.round(num);
+    }
+
+    function myFunction(item) {
+        document.getElementById("sumTotal").innerHTML = ((costArray.reduce(totalCost, 0)/nameArray.length));
+    }
+
+
   </script>
- <form>
-  <input id="input" type=text>
-   <input type=button onclick="myFunction()" value="Add Name"/>
-  </form>
+  <form>
 
- <div id="box"; style="border:1px solid black;width:150px;height:150px;overflow:auto">
-  </div>
+    <input id="inputName" type=text>
+    <input type=button onclick="addName()" value="Add Name" />
+    <div id="box" ; style="border:1px solid black;width:150px;height:150px;overflow:auto"></div>
+
+
+
+
+    <div class="input-group">
+      <span class="input-group-addon">$</span>
+      <input id="inputCost" type="number" class="form-control" aria-label="Amount (to the nearest dollar)">
+      <span class="input-group-addon">.00</span>
+      <input type=button onclick="addFoodItem()" value="Add Food" />
+      <div id="boxCost" ; style="border:1px solid black;width:150px;height:150px;overflow:auto"></div>
+    </div>
+    <input type=button onclick="myFunction(totalCost)" value="Split the Bill!" />
+    <p>Cost per person: <span id="sumTotal"></span></p>
+  </form>
 </body>
+
 </html>
