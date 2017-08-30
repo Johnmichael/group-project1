@@ -23,6 +23,13 @@ Require at least one entry in NameAray before allowing submit
 
 
     function addName() {
+      var check;
+      check = document.getElementById("inputName").value;
+      if (check == "") {
+          alert("Please enter a name");
+          return false;
+      };
+
       var x = document.getElementById("boxNames");
       nameArray.push(document.getElementById("inputName").value);
       x.innerHTML = nameArray.join('<br/>');
@@ -35,6 +42,12 @@ Require at least one entry in NameAray before allowing submit
     }
 
     function addFoodItem() {
+      var check;
+      check = document.getElementById("inputCost").value;
+      if (check == "") {
+          alert("Please enter a price");
+          return false;
+      };
       var y = document.getElementById("boxCost");
       costArray.push(document.getElementById("inputCost").value);
       y.innerHTML = costArray.join('<br/>');
