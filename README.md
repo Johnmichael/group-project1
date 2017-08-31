@@ -1,6 +1,6 @@
 # bSplit Web App
 
-#### Simple Web App to improve dining experience in groups., 8.31.2017
+#### Simple Web App to improve dining experience in groups, 8.31.2017
 
 #### By Daniel Garcia, John Parsons, Lainey Rokk
 
@@ -26,9 +26,9 @@ GarciaX33 GitHub Profile
 
 * Adobe Photoshop
 * Atom
-* Google Chrome
-* GitHub
+* Chrome
 * Git
+* GitHub
 
 ### License
 
