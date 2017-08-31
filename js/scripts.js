@@ -1,5 +1,5 @@
-var nameArray = []
-var costArray = []
+var nameArray = [];
+var costArray = [];
 
 
 function addName() {

@@ -9,13 +9,14 @@
  		<link rel="icon" href="img/blogo.ico">
    </head>
    <body>
+     <div class="container">
      <div class="wrapper">
      <div class="header page-header">
-       <h1 class="name"><img src="img/blogo.jpg" alt="Logo"></h1>
+       <h1 class="appName"><img src="img/blogo.jpg" alt="Logo"></h1>
        <h2>bSplit Web App</h2>
      </div>
-     <div class="container">
-    <form>
+
+    <!-- <form>
       <label>Names</label><br>
       <input id="inputName" class="form-control" placeholder="Group Names" type=text>
       <button id="button" type=button onclick="addName()" value="Add Name"><span>Add Names</span></button>
@@ -24,7 +25,7 @@
       <label>Food Price</label>
       <div class="input-group">
       <span class="input-group-addon">$</span>
-      <input id="inputCost" type="number" class="form-control" placeholder="Food Price" aria-label="Amount (to the nearest dollar)">
+      <input id="inputCost" type="number" class="form-control" aria-label="Amount (to the nearest dollar)">
       <br>
       <br>
       <br>
@@ -36,10 +37,95 @@
     <button id="button" type=button onclick="splitTheBill(totalCost)" value="Split the Bill!"><span>Split The Bill</span></button>
     <p id="costPP"><h2>Cost per person:<h2> <span id="sumTotal"></span></p>
   </form>
+  </div> -->
+  <!--Diners' Input form-->
+  <form id="BillSplit">
+    <div class="row">
+    <div class="Person1 col-md-4">
+      <div>
+        <h3>Diner 1</h3>
+      </div>
+      <div class="Name">
+        Name:<br>
+        <input type="text" name="diner1">
+      </div>
+      <h5>Please enter the price of each meal item.</h5><br>
+      <div class="Meal">
+        Appetizer:<br>
+        <input type="text" name="appetizer"><br>
+      Entree:<br>
+        <input type="text" name="Entree"><br>
+        Beverage:<br>
+      <input type="text" name="beverage"><br>
+        Dessert:<br>
+        <input type="text" name="dessert"><br>
+      </div>
+    </div>
+    <div class="Person2 col-md-4">
+      <div>
+        <h3>Diner 2</h3>
+      </div>
+      <div class="Name">
+        Name:<br>
+        <input type="text" name="diner2">
+      </div>
+      <h5>Please enter the price of each meal item.</h5><br>
+      <div class="Meal">
+        Appetizer:<br>
+        <input type="text" name="appetizer"><br>
+      Entree:<br>
+        <input type="text" name="Entree"><br>
+        Beverage:<br>
+      <input type="text" name="beverage"><br>
+        Dessert:<br>
+        <input type="text" name="dessert"><br>
+      </div>
+    </div>
+    <div class="Person3 col-md-4">
+      <div>
+        <h3>Diner 3</h3>
+      </div>
+      <div class="Name">
+        Name:<br>
+        <input type="text" name="diner3">
+      </div>
+      <h5>Please enter the price of each meal item.</h5><br>
+      <div class="Meal">
+        Appetizer:<br>
+        <input type="text" name="appetizer"><br>
+      Entree:<br>
+        <input type="text" name="Entree"><br>
+        Beverage:<br>
+      <input type="text" name="beverage"><br>
+        Dessert:<br>
+        <input type="text" name="dessert"><br>
+      </div>
+    </div>
+    </div>
+      <div class="pay">
+      <h1></h1>
+      <h2>Pay the Bill</h2>
+        <div class="row">
+          <div class"P1 col-md-4">
+            <h5><span class="diner1"></span></h5>
+            <h4>Current Total<span class="d1total"></span></h4>
+          </div>
+          <div class"P1 col-md-4">
+            <h5><span class="diner2"></span></h5>
+            <h4>Current Total<span class="d2total"></span></h4>
+          </div>
+          <div class"P1 col-md-4">
+            <h5><span class="diner3"></span></h5>
+            <h4>Current Total<span class="d3total"></span></h4>
+          </div>
+        </div>
+      </div>
+
   </div>
+
+
 </div>
-<br>
-<iframe src="http://free.timeanddate.com/clock/i5vfm1l5/n202/szw110/szh110/hoc000/hbw2/hfceee/cf100/hncccc/fdi76/mqc000/mql10/mqw4/mqd98/mhc000/mhl10/mhw4/mhd98/mmc000/mml10/mmw1/mmd98" frameborder="0" width="110" height="110"></iframe>
+</div>
 
 </body>
 

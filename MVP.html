@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>bSplit</title>
+   <script src="js/jquery-3.2.1.js"></script>
+   <link rel="stylesheet" href="css/bootstrap.css">
+   <link rel="stylesheet" href="css/styles.css">
+   <script src="js/accounting.js"></script>
+  <script src="js/scripts-MVP.js"></script>
+   <link rel="icon" href="img/blogo.ico">
+  </head>
+  <body>
+    <div class="container">
+    <div class="wrapper">
+    <div class="header page-header">
+      <h1 class="appName"><img src="img/blogo.jpg" alt="Logo"></h1>
+      <h2>bSplit Web App</h2>
+    </div>
+
+   <!-- <form>
+     <label>Names</label><br>
+     <input id="inputName" class="form-control" placeholder="Group Names" type=text>
+     <button id="button" type=button onclick="addName()" value="Add Name"><span>Add Names</span></button>
+     <div id="box"></div>
+     <br>
+     <label>Food Price</label>
+     <div class="input-group">
+     <span class="input-group-addon">$</span>
+     <input id="inputCost" type="number" class="form-control" aria-label="Amount (to the nearest dollar)">
+     <br>
+     <br>
+     <br>
+     <button id="button" type=button onclick="addFoodItem()" value="Add Food" style="vertical-align:middle"><span>Add Food</span></button>
+     </div>
+     <br>
+     <div id="boxCost"></div>
+     <br>
+   <button id="button" type=button onclick="splitTheBill(totalCost)" value="Split the Bill!"><span>Split The Bill</span></button>
+   <p id="costPP"><h2>Cost per person:<h2> <span id="sumTotal"></span></p>
+ </form>
+ </div> -->
+ <!--Diners' Input form-->
+ <form id="BillSplit">
+   <div class="row">
+   <div class=" col-md-4"> <!-- Person 1 Div -->
+     <div>
+       <h3 >Diner 1</h3>
+     </div>
+     <div class="Name">
+       Name:<br>
+       <input type="text" name="diner1" id="d1name">
+     </div>
+     <h5>Please enter the price of each meal item.</h5><br>
+     <div class="Meal">
+       Appetizer:<br>
+       <input type="number" name="appetizer" min="0" class="food" id="d1f1"><br>
+     Entree:<br>
+       <input type="number" name="Entree" min="0" class="food" id="d1f2"><br>
+       Beverage:<br>
+     <input type="number" name="beverage" min="0" class="food" id="d1f3"><br>
+       Dessert:<br>
+       <input type="number" name="dessert" min="0" class="food" id="d1f4"><br>
+     </div><input type=button onclick="addFoodItemDiner1()" value="Add" />
+   </div>
+   <div class="Person2 col-md-4">
+     <div>
+       <h3>Diner 2</h3>
+     </div>
+     <div class="Name">
+       Name:<br>
+       <input type="text" name="diner2" id="d2name">
+     </div>
+     <h5>Please enter the price of each meal item.</h5><br>
+     <div class="Meal">
+       Appetizer:<br>
+       <input type="number" name="appetizer" min="0" class="food" id="d2f1"><br>
+     Entree:<br>
+       <input type="number" name="Entree" min="0" class="food" id="d2f2"><br>
+       Beverage:<br>
+     <input type="number" name="beverage" min="0" class="food" id="d2f3"><br>
+       Dessert:<br>
+       <input type="number" name="dessert" min="0" class="food" id="d2f4"><br>
+     </div><input type=button onclick="addFoodItemDiner2()" value="Add" />
+   </div>
+   <div class="Person3 col-md-4">
+     <div>
+       <h3>Diner 3</h3>
+     </div>
+     <div class="Name">
+       Name:<br>
+       <input type="text" name="diner3" id="d3name">
+     </div>
+     <h5>Please enter the price of each meal item.</h5><br>
+     <div class="Meal">
+       Appetizer:<br>
+       <input type="number" name="appetizer" min="0" class="food" id="d3f1"><br>
+     Entree:<br>
+       <input type="number" name="Entree" min="0" class="food" id="d3f2"><br>
+       Beverage:<br>
+     <input type="number" name="beverage" min="0" class="food" id="d3f3"><br>
+       Dessert:<br>
+       <input type="number" name="dessert" min="0" class="food" id="d3f4"><br>
+     </div><input class="button" type=button onclick="addFoodItemDiner3()" value="Add" />
+   </div>
+   </div>
+     <div class="pay">
+     <h1></h1>
+     <h2>Pay the Bill</h2>
+       <div class="row">
+         <div class"P1 col-md-4">
+           <h5></h5>
+           <h4><span id="person1">Diner 1</span> Total: <span id="diner1Total"></span><br></h4><h5><span id="diner1CurrentTotal" ></span></h5>
+         </div>
+         <div class"P2 col-md-4">
+           <h4><span id="person2">Diner 2 </span> Total: <span id="diner2Total"></span><br></h4><h5><span id="diner2CurrentTotal"></span></h5>
+         </div>
+         <div class"P3 col-md-4">
+           <h4><span id="person3">Diner 3</span> Total: <span id="diner3Total"></span><br></h4><h5><span id="diner3CurrentTotal"></span></h5>
+         </div>
+       </div>
+       <input type=button onclick="splitTheBill()" id="button" value="Split the Bill!"/>
+       <div><span id="billSplit"></span></br></div>
+     </div>
+
+ </div>
+
+</form>
+</div>
+
+<script>
+</script>
+
+</body>
+
+</html>

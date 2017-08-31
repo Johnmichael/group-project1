@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+
+<html>
+
+<head>
+  <script src="js/jquery-3.2.1.js"></script>
+  <script src="js/accounting.js"></script>
+  <script src="js/scripts-backend-only.js"></script>
+</head>
+
+<body>
+
+  <form action="" method="post">
+
+    <input id="inputName" type=text>
+    <input type=button onclick="addName()" value="Add Name" />
+    <input type=button onclick="removeName()" value="Remove Name" />
+    <div id="boxNames" ; style="border:1px solid black;width:150px;height:150px;overflow:auto"></div>
+
+
+
+
+    <div class="input-group">
+      <input id="inputCost" type="number" placeholder="$" min="0" class="form-control inputNumber">
+      <span class="input-group-addon"></span>
+      <input type=button onclick="addFoodItem()" value="Add Food" />
+      <input type=button onclick="removeFoodItem()" value="Remove Food" />
+      <div id="boxCost" ; style="border:1px solid black;width:150px;height:150px;overflow:auto"></div>
+    </div>
+
+    <div class="tip-and-tax">
+      <label>Tax Rate</label><br>
+      <input type="number" class="form-control inputNumber" id="inputTax" min="0" onchange="addTax()">
+      <span class="input-group-addon">%</span> <br>
+      <label>Tip Amount</label><br>
+      <input type="number" class="form-control" id="inputTip" min="0" onchange="addTip()">
+      <span class="input-group-addon">%</span>
+    </div>
+
+    <input type=button onclick="splitTheBill(subTotal)" value="Split the Bill!" />
+    <p>Total Cost of Meal: <span id="priceOfMeal"></span></p>
+    <p>Per Person: <span id="cost-of-food"></span></p>
+    <p>Tax: <span id="tax"></span></p>
+    <p>Tip: <span id="tip"></span></p>
+    <p>Your Total: <span id="sumTotal"></span></p>
+
+
+
+  </form>
+</body>
+
+</html>

@@ -12,7 +12,7 @@
 
 }
 
-.pizza-info-toggle {
+.info-toggle {
   display: none;
 }
 
@@ -29,16 +29,7 @@ h1 {
 body{
   align-items: center;
   background-color: #9AD6C1;
-	text-align: center;
 }
-
-.container {
-	margin-left: auto;
-	margin-right: auto;
-	width: 50em;
-	text-align: left;
-}
-
 .wrapper {
   margin: auto;
   width: 50%;
@@ -48,6 +39,8 @@ body{
   -moz-border-radius: 9px 9px 9px 9px;
   -webkit-border-radius: 9px 9px 9px 9px;
   border: 11px double yellow;
+  padding-left: 10px;
+  padding-right: 10px;
 
 }
 
@@ -116,10 +109,7 @@ body{
   width: 150px;
   height: 150px;
   overflow: auto;
-  width: 250px;
-  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
-  text-align: center;
-  text-decoration: underline;
+  box-shadow: 10px 10px 5px grey;;
 }
 
 #boxCost {
@@ -127,9 +117,7 @@ body{
   width: 150px;
   height: 150px;
   overflow: auto;
-  width: 250px;
-  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
-  text-align: center;
+  box-shadow: 10px 10px 5px grey;;
 }
 #button {
   display: inline-block;
@@ -170,8 +158,19 @@ body{
   opacity: 1;
   right: 0;
 }
-div.card {
-  width: 250px;
-  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+
+.person1 {
+  padding-left: 20px;
+  padding-right: 20px;
+  border-style: ridge;
+  border-color: #663300;
+}
+
+.pay {
   text-align: center;
+  color: white;
+  background-color: #663300;
+  margin-top: 10px;
+  padding-top: 25px;
+  font-style: italic;
 }
