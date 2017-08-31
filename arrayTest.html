@@ -36,7 +36,7 @@
     function addFoodItem() {
       var check;
       check = document.getElementById("inputCost").value;
-      if (check == "" || check <= 0) {
+      if (check == "" || check < 0) {
         alert("Please enter a number greater than 0");
         return false;
       };
